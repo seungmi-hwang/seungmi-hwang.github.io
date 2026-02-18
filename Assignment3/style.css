@@ -1,0 +1,54 @@
+body{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin: 0;
+  padding: 40px;
+  background-color: beige;
+  color: orange;
+}
+
+/* Main title */
+h1{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* section title */
+h2{
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Question */
+p{
+  margin: 7px 0;
+  line-height: 1.5;
+}
+
+/* chart container */
+#vis1,
+#vis2,
+#vis3,
+#vis4 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 10px;
+  background-color: beige;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(193, 225, 193, 40);
+}
+
+/* mobile */
+@media (max-width: 768px){
+  body{
+    padding: 20px;
+  }
+
+  h1{
+    font-size: 22px;
+  }
+
+  h2{
+    font-size: 18px;
+  }
+}

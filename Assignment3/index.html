@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--linking css-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Vega Libraries-->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <title>IAT355 Assignment 3 - Video Game Sales</title>
+
+  </head>
+
+  <body>
+    <h1>IAT355 Assignment3: Vega-Lite Visual Explorations</h1>
+
+    <p>
+      This detaset contains 16,598 video games with variables including Platform, Genre, Year, Publisher,
+      and regional sales (NA, EU, JP, Other) plus total Global Sales (millions of units). </p>
+
+      <!--vis1-->
+      <div class="vis-block">
+        <h2>Visualization1: Global Sales by Genre and Platform</h2>
+        <ul class="q">
+          <li><b>Q1:</b>Which genres generate the highest total global sales across all platforms? </li>
+          <li><b>Q2:</b> Within each genre, which platforms contribute most to total global sales?</li>
+        </ul>
+        <div id="vis1" class="chart"></div>
+        <p class="note" id="ref1"></p>
+      </div>
+
+      <!--vis2-->
+      <div class="vis-block">
+         <h2>Visualization2: Global Sales by Genre and Platform</h2>
+         <ul class="q">
+          <li><b>Q1:</b>How did global sales change over time for major platforms?</li>
+          <li><b>Q2:</b> Do some platforms peak in specific time periods (console eras)?</li>
+         </ul>
+        <div id="vis2" class="chart"></div>
+        <p class="note" id="ref2"></p>
+      </div>
+
+
+      <!--vis3-->
+      <div class="vis-block">
+        <h2>Visualization3: Regional Sales vs. Platform</h2>
+        <ul class="q">
+          <li><b>Q1:</b> How do different regions (NA/EU/JP/Other) compare by platform?</li>
+          <li><b>Q2:</b> Are there clear region-specific platform preferences?</li>
+        </ul>
+        <div id="vis3" class="chart"></div>
+        <p class="note" id="ref3"></p>
+      </div>
+
+       <!-- VIS 4 -->
+        <div class="vis-block">
+          <h2>Visualization4: Visual Story: The “Blockbuster” Effect</h2>
+          <ul class="q">
+            <li><b>Q1:</b> Are global sales concentrated among a small number of games?</li>
+            <li><b>Q2:</b> Which titles dominate total global sales the most?</li>
+          </ul>
+          <div id="vis4" class="chart"></div>
+          <p class="note" id="ref4"></p>
+          <script src="vis.js"></script>
+  </body>
+</html>
