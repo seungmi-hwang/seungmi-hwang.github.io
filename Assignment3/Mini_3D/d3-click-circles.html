@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D3 Click Circles</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    #canvas {
+      margin: 0 auto;
+      width: 800px;
+      background: white;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>D3 Interactive Circle Canvas</h1>
+  <p>Click anywhere inside the canvas to add a circle. Maximum: 10 circles.</p>
+
+  <svg id="canvas" width="800" height="500"></svg>
+
+  <a class="back-link" href="index.html">← Back to Home</a>
+
+  <script>
+    const svg = d3.select("#canvas");
+    const width = 800;
+    const height = 500;
+    const maxCircles = 10;
+
+    let circlesData = [];
+    let nextId = 0;
+
+    const colors = [
+      "#ff6b6b", "#4ecdc4", "#45b7d1", "#f7b267",
+      "#a29bfe", "#55efc4", "#fd79a8", "#74b9ff"
+    ];
+
+    function renderCircles() {
+      const circles = svg.selectAll("circle")
+        .data(circlesData, d => d.id);
+
+      circles.enter()
+        .append("circle")
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y)
+        .attr("r", 0)
+        .attr("fill", d => d.color)
+        .attr("opacity", 0.8)
+        .transition()
+        .duration(500)
+        .attr("r", d => d.r);
+
+      circles.transition()
+        .duration(300)
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      circles.exit()
+        .transition()
+        .duration(400)
+        .attr("r", 0)
+        .attr("opacity", 0)
+        .remove();
+    }
+
+    svg.on("click", function(event) {
+      const [x, y] = d3.pointer(event);
+
+      const newCircle = {
+        id: nextId++,
+        x: x,
+        y: y,
+        r: Math.random() * 20 + 15,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      };
+
+      circlesData.push(newCircle);
+
+      if (circlesData.length > maxCircles) {
+        circlesData.shift();
+      }
+
+      renderCircles();
+    });
+
+    svg.selectAll("circle")
+      .on("mouseover", function() {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr("opacity", 1)
+          .attr("stroke", "#222")
+          .attr("stroke-width", 2);
+      })
+      .on("mouseout", function() {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .attr("opacity", 0.8)
+          .attr("stroke", "none");
+      });
+  </script>
+</body>
+</html>
