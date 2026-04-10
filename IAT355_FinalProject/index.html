@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generative AI Trends</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
   <header class="navbar">
@@ -52,13 +55,13 @@
 
       <div class="filter-bar">
         <span class="filter-label">Filter by Platform:</span>
-        <button class="filter-btn active">All</button>
-        <button class="filter-btn">ChatGPT</button>
-        <button class="filter-btn">Gemini</button>
-        <button class="filter-btn">Claude</button>
+        <button class="filter-btn active" data-platform="All">All</button>
+        <button class="filter-btn" data-platform="ChatGPT">ChatGPT</button>
+        <button class="filter-btn" data-platform="Gemini">Gemini</button>
+        <button class="filter-btn" data-platform="Claude">Claude</button>
       </div>
 
-      <img src="images/figure1.jpeg" alt="Growth Trends of Generative AI Tools" class="chart-img" />
+      <div id="vis1" class="chart-vis"></div>
       <p>
         This line chart illustrates the growth of generative AI tools over time using Google
         Trends data from 2021 to 2026. ChatGPT rises sharply starting in late 2022 and remains
@@ -76,7 +79,7 @@
     <section id="regional" class="content-section">
       <h2>Figure 2. Regional Comparison of Generative AI Interest</h2>
       <p class="source">Data source: Google Trends (2021–2026, by regions)</p>
-      <img src="images/figure2.jpeg" alt="Regional Comparison of Generative AI Interest" class="chart-img" />
+      <div id="vis2" class="chart-vis"></div>
       <p>
         This chart compares search interest in ChatGPT, Gemini, and Claude across the United States,
         the United Kingdom, India, and Canada. ChatGPT shows the highest level of interest in all
@@ -178,7 +181,8 @@
   </main>
 
   <footer class="footer">
-    <p>ALLDAY PROJECT | IAT 355 Final Project Milestone 2</p>
+    <p>ALLDAY PROJECT | IAT 355 Final Project Milestone 3</p>
+    <script src="vis.js"></script>
   </footer>
 </body>
 </html>
