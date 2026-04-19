@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "Platform",
         scale: {
           domain: ["ChatGPT", "Claude", "Gemini"],
-          range: ["#4C78A8", "#F58518", "#E45756"]
+          range: ["#4C78A8", "#E45756", "#F58518"]
         }
       },
       tooltip: [
